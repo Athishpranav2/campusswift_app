@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// Import your new widgets
 import 'widgets/google_sign_in_section.dart';
 import 'widgets/login_footer.dart';
 import 'widgets/login_header.dart';
@@ -18,39 +17,34 @@ class LoginScreen extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.08),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Spacer(flex: 2),
-
-              // Widget 1
+              // Header at the top
+              SizedBox(height: screenHeight * 0.12), // ~12% of screen height
               const LoginHeader(),
+              const Spacer(),
 
-              const Spacer(flex: 2),
-
-              // Widget 2
-              GoogleSignInSection(
-                onPressed: () {
-                  // Your Google Sign-In logic goes here
-                  debugPrint('Sign in with Google button tapped');
-                },
+              // Bottom Section (Google Button + Footer)
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  GoogleSignInSection(
+                    onPressed: () {
+                      debugPrint('Sign in with Google button tapped');
+                    },
+                  ),
+                  SizedBox(height: screenHeight * 0.04), // ~4% spacing
+                  LoginFooter(
+                    onTermsPressed: () {
+                      debugPrint('Terms of Service tapped');
+                    },
+                    onPrivacyPolicyPressed: () {
+                      debugPrint('Privacy Policy tapped');
+                    },
+                  ),
+                  SizedBox(height: screenHeight * 0.03), // ~3% bottom spacing
+                ],
               ),
-
-              const Spacer(flex: 2),
-
-              // Widget 3
-              LoginFooter(
-                onTermsPressed: () {
-                  // Navigate to Terms of Service
-                  debugPrint('Terms of Service tapped');
-                },
-                onPrivacyPolicyPressed: () {
-                  // Navigate to Privacy Policy
-                  debugPrint('Privacy Policy tapped');
-                },
-              ),
-
-              SizedBox(height: screenHeight * 0.03),
             ],
           ),
         ),

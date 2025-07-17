@@ -16,6 +16,7 @@ class LoginFooter extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Column(
+      mainAxisSize: MainAxisSize.min, // This helps reduce overall spacing
       children: [
         Text(
           'By continuing, you agree to our',
@@ -24,11 +25,21 @@ class LoginFooter extends StatelessWidget {
             color: const Color(0xFF8A8A8A).withOpacity(0.8),
           ),
         ),
+        const SizedBox(height: 2), // Add minimal spacing between text and row
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton(
               onPressed: onTermsPressed,
+              style: TextButton.styleFrom(
+                minimumSize: Size.zero, // Remove minimum size
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 4,
+                  vertical: 2,
+                ), // Reduce padding
+                tapTargetSize:
+                    MaterialTapTargetSize.shrinkWrap, // Reduce tap target
+              ),
               child: Text(
                 'Terms of Service',
                 style: GoogleFonts.inter(
@@ -46,6 +57,15 @@ class LoginFooter extends StatelessWidget {
             ),
             TextButton(
               onPressed: onPrivacyPolicyPressed,
+              style: TextButton.styleFrom(
+                minimumSize: Size.zero, // Remove minimum size
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 4,
+                  vertical: 2,
+                ), // Reduce padding
+                tapTargetSize:
+                    MaterialTapTargetSize.shrinkWrap, // Reduce tap target
+              ),
               child: Text(
                 'Privacy Policy',
                 style: GoogleFonts.inter(

@@ -8,7 +8,7 @@ plugins {
 android {
     namespace = "com.example.campusswift_app"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "27.0.12077973" // <-- THIS IS THE CHANGED LINE
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
