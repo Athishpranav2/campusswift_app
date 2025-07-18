@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'widgets/google_sign_in_section.dart';
-import 'widgets/login_footer.dart';
-import 'widgets/login_header.dart';
+import '../widgets/google_sign_in_section.dart';
+import '../widgets/login_footer.dart';
+import '../widgets/login_header.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -28,11 +28,7 @@ class LoginScreen extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  GoogleSignInSection(
-                    onPressed: () {
-                      debugPrint('Sign in with Google button tapped');
-                    },
-                  ),
+                  const GoogleSignInSection(),
                   SizedBox(height: screenHeight * 0.04), // ~4% spacing
                   LoginFooter(
                     onTermsPressed: () {

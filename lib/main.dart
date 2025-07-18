@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 import 'app.dart';
 import 'injector.dart' as di;
 
 void main() async {
-  // You might not need this yet, but it's good practice to keep
-  // for when you add other services that need initialization.
   WidgetsFlutterBinding.ensureInitialized();
-
-  // Set up all your app's dependencies.
+  
+  // Simple Firebase initialization
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  
   await di.init();
-
-  // Run your application.
   runApp(const MyApp());
 }

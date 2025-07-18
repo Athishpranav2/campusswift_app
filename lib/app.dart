@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       routerConfig: AppRouter.router,
 
       // --- General App Configuration ---
-      title: 'CampusSwift',
+      title: 'Sidekick',
       debugShowCheckedModeBanner: false, // Hides the debug banner in the corner
       // --- Theming ---
       // You can define your app's look and feel here or in a separate theme file.

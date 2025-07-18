@@ -1,7 +1,7 @@
-import 'package:dartz/dartz.dart';
-import 'package:campusswift_app/core/errors/failures.dart';
-import 'package:campusswift_app/features/auth/domain/entities/user_entity.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class AuthRepository {
-  Future<Either<Failure, UserEntity>> signInWithGoogle();
+  Future<User> signInWithGoogle();
+  Future<void> signOut();
+  User? getCurrentUser();
 }

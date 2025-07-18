@@ -1,12 +1,13 @@
 import '../repositories/auth_repository.dart';
 import '../entities/user_entity.dart';
 
-class SignInWithGoogleUseCase {
+class GetCurrentUserUseCase {
   final AuthRepository repository;
-  SignInWithGoogleUseCase(this.repository);
+  GetCurrentUserUseCase(this.repository);
 
-  Future<UserEntity> call() async {
-    final user = await repository.signInWithGoogle();
+  UserEntity? call() {
+    final user = repository.getCurrentUser();
+    if (user == null) return null;
     return UserEntity(
       uid: user.uid,
       email: user.email ?? '',

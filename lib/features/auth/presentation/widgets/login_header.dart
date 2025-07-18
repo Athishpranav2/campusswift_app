@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// If you have google_fonts in pubspec.yaml, keep this import. Otherwise, comment it out.
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginHeader extends StatelessWidget {
@@ -28,28 +29,37 @@ class LoginHeader extends StatelessWidget {
             borderRadius: BorderRadius.circular(screenWidth * 0.11),
             child: Container(
               color: const Color(0xFF1C1C1C),
-              child: Image.asset('assets/logo.jpeg'),
+              // If the asset is missing, show a placeholder icon
+              child: Image.asset(
+                'assets/logo.jpeg',
+                errorBuilder: (context, error, stackTrace) => const Icon(Icons.image_not_supported, size: 48, color: Colors.white24),
+              ),
             ),
           ),
         ),
         SizedBox(height: screenHeight * 0.04),
+        // Use GoogleFonts if available, otherwise fallback to default
         Text(
           'SIDEKICK',
-          style: GoogleFonts.inter(
+          style: (Theme.of(context).textTheme.titleLarge ?? const TextStyle()).copyWith(
             fontSize: screenWidth * 0.08,
             fontWeight: FontWeight.w700,
             color: const Color(0xFFFFFFFF),
             letterSpacing: 3,
+            // Uncomment if google_fonts is available:
+            // fontFamily: GoogleFonts.inter().fontFamily,
           ),
         ),
         SizedBox(height: screenHeight * 0.015),
         Text(
           'Your campus companion',
-          style: GoogleFonts.inter(
+          style: (Theme.of(context).textTheme.bodyMedium ?? const TextStyle()).copyWith(
             fontSize: screenWidth * 0.035,
             fontWeight: FontWeight.w400,
             color: const Color(0xFF8A8A8A),
             letterSpacing: 0.5,
+            // Uncomment if google_fonts is available:
+            // fontFamily: GoogleFonts.inter().fontFamily,
           ),
         ),
       ],

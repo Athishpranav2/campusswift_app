@@ -43,3 +43,35 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# 🚨 SECURITY: Firebase & API Keys - DO NOT COMMIT
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+ios/firebase_app_id_file.json
+web/firebase-config.js
+lib/firebase_options.dart
+
+# 🚨 SECURITY: Environment & Local Config
+.env
+.env.local
+.env.production
+.env.development
+*.env
+local.properties
+
+# 🚨 SECURITY: Signing & Certificates
+*.keystore
+*.jks
+*.p8
+*.p12
+*.key
+*.pem
+*.mobileprovision
+*.certSigningRequest
+
+# 🚨 SECURITY: API Keys & Secrets
+secrets/
+keys/
+credentials/
+**/secrets.dart
+**/api_keys.dart
